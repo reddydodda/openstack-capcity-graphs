@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+## to unset all OS_* values
+for param in $(env |awk -F= '/^OS_/{print$1}'); do
+unset $param
+done
+##
+path=$(echo $PWD)
+export OS_AUTH_URL=https://region1.stylesyou.com:5000/v3
+export OS_PROJECT_ID=FR3456323DSD223435465DD
+export OS_PROJECT_NAME="admin"
+export OS_USER_DOMAIN_NAME="stylesyou"
+if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+unset OS_TENANT_ID
+unset OS_TENANT_NAME
+export OS_USERNAME="admin"
+export OS_PASSWORD=$(cat $path/.openrc_password)
+
+export OS_REGION_NAME="region2"
+if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
+export OS_INTERFACE=public
+export OS_IDENTITY_API_VERSION=3
+
