@@ -2,11 +2,12 @@
 #This Script will Genrate and email reports to Mark's Team
 
 echo "Genrating Reports: `date`"
-#Email ID's
-email_address="reddydodda@gmail.com"
+#MySQL Username
 username="capacity"
-path="/home/piops/automation-scripts/quota_and_usage_report/resource-allocation-graphs"
-venv_path="/home/piops/automation-scripts/quota_and_usage_report/resource-allocation-graphs"
+
+path=$(echo $PWD)
+# path to venv 
+venv_path="$path/venv"
 password=$(cat $path/.mysql_password)
 > $path/host_data.txt
 > $path/vm_data.txt
